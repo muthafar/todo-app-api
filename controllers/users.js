@@ -2,7 +2,7 @@ const User = require("../models/user");
 const ExpressError = require("../helpers/ExpressError");
 const jwt = require("jwt-simple");
 
-const tokenForUser = user => {
+const tokenForUser = (user) => {
   const timeStamp = new Date().getTime();
   return jwt.encode({ sub: user.id, iat: timeStamp }, process.env.JWT_SECRET);
 };
